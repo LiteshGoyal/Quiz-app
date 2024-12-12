@@ -1,6 +1,7 @@
 ### Quiz Application
 
 This is a simple Django-based quiz application where users can attempt multiple-choice questions and view their results.
+![Project Logo](images/Quiz.png)
 
 ## Features
 
