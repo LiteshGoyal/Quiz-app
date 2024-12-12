@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class=" flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="text-center bg-white p-8 rounded-xl shadow-lg max-w-lg w-full">
+        <h1 class="text-4xl font-extrabold text-gray-800 mb-6">
+            Welcome to the Quiz App
+        </h1>
+        <p class="text-xl text-gray-600 mb-8">
+            Test your knowledge and challenge yourself with exciting quizzes. Ready to start?
+        </p>
+        <a href="{% url 'start_quiz' %}" class="inline-block bg-gradient-to-r from-indigo-600 to-indigo-800 text-white px-6 py-3 rounded-lg shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+            Start Quiz
+        </a>
+    </div>
+</div>
+{% endblock %}

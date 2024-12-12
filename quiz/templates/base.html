@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Import Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+
+    <style>
+        /* Apply the custom font */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: "Itim", cursive;
+        }
+        main {
+            flex: 1;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-blue-500 to-purple-600 text-gray-800">
+    <!-- Navbar -->
+    <nav class="bg-transparent text-white shadow">
+        <div class="container mx-auto p-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold ms-12"><a href="/">Quiz App</a></h1>
+            <ul class="flex space-x-12 me-12">
+                <li class="transform hover:scale-110 transition duration-300 ease-in-out"><a href="/" class="hover:underline text-lg ">Home</a></li>
+                <li class="transform hover:scale-110 transition duration-300 ease-in-out"><a href="https://profile-alpha-cyan.vercel.app/" class="hover:underline text-lg">About</a></li>
+                <li class="transform hover:scale-110 transition duration-300 ease-in-out"><a href="https://profile-alpha-cyan.vercel.app/#contact" class="hover:underline text-lg">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p class="mb-2">&copy; 2024 &nbsp; Quiz App. &nbsp; All rights reserved.</p>
+            <div class="flex justify-center space-x-4">
+                <!-- GitHub Icon -->
+                <a href="https://github.com/LiteshGoyal" target="_blank" class="text-white hover:text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.793-.26.793-.577v-2.168c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.204.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.997.108-.774.418-1.305.761-1.604-2.665-.305-5.466-1.332-5.466-5.933 0-1.311.469-2.381 1.236-3.221-.124-.303-.536-1.523.117-3.176 0 0 1.009-.322 3.3 1.23a11.482 11.482 0 013.007-.404c1.02.005 2.046.137 3.007.404 2.29-1.552 3.3-1.23 3.3-1.23.653 1.653.241 2.873.118 3.176.768.84 1.235 1.91 1.235 3.221 0 4.614-2.807 5.624-5.478 5.921.43.372.814 1.102.814 2.222v3.293c0 .32.192.693.8.576C20.565 21.796 24 17.302 24 12 24 5.373 18.627 0 12 0z" />
+                    </svg>
+                </a>
+                <!-- LinkedIn Icon -->
+                <a href="https://www.linkedin.com/in/litesh-goyal-8b6225211/" target="_blank" class="text-white hover:text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M4.98 3.5C4.98 2.12 6.1 1 7.48 1c1.38 0 2.5 1.12 2.5 2.5 0 1.38-1.12 2.5-2.5 2.5-1.38 0-2.5-1.12-2.5-2.5zm.02 4.5H9v15H5V8zm7 0h3.6v2.2h.05c.5-.9 1.75-1.85 3.6-1.85 3.85 0 4.8 2.45 4.8 5.65V23h-4v-7.7c0-1.8-.03-4.1-2.5-4.1-2.5 0-2.9 1.95-2.9 3.95V23h-4V8z" />
+                    </svg>
+                </a>
+                <!-- X Icon -->
+                <a href="https://twitter.com/goyal_litesh" target="_blank" class="text-white hover:text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.954 4.569c-.885.392-1.83.656-2.825.775 1.014-.608 1.794-1.569 2.163-2.723-.951.564-2.005.974-3.127 1.195-.897-.959-2.178-1.557-3.594-1.557-2.719 0-4.924 2.206-4.924 4.924 0 .385.045.762.127 1.124-4.091-.205-7.719-2.165-10.148-5.144-.424.729-.666 1.576-.666 2.476 0 1.708.869 3.216 2.188 4.099-.807-.026-1.566-.247-2.229-.616v.061c0 2.386 1.697 4.374 3.946 4.826-.413.111-.849.171-1.296.171-.317 0-.626-.031-.927-.088.626 1.956 2.444 3.38 4.6 3.42-1.68 1.317-3.809 2.102-6.102 2.102-.396 0-.788-.023-1.175-.068 2.179 1.397 4.768 2.211 7.548 2.211 9.056 0 14.004-7.512 14.004-14.004 0-.213-.005-.425-.014-.637.962-.695 1.797-1.562 2.457-2.549z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
