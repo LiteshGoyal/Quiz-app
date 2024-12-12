@@ -12,7 +12,7 @@ This is a simple Django-based quiz application where users can attempt multiple-
 - Tracks user's answers, correctness, and total scores.
 
 - Displays detailed results for each question and the final score.
-
+![Project Logo](images/Question.png)
 ## Requirements
 
 - Python 3.8+
