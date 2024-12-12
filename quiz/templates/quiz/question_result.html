@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-6 my-4">
+    <h2 class="text-2xl font-semibold mb-4 text-gray-700">Your Answer</h2>
+    <p><strong>Question:</strong> {{ answer.question.question_text }}</p>
+    <p><strong>Your Answer:</strong> {{ answer.selected_option }}</p>
+    <p><strong>Correct Answer: </strong> {{answer.question.correct_option}} -
+        {% if answer.question.correct_option == 'A' %}
+            {{ answer.question.option_a }}
+        {% elif answer.question.correct_option == 'B' %}
+            {{ answer.question.option_b }}
+        {% elif answer.question.correct_option == 'C' %}
+            {{ answer.question.option_c }}
+        {% elif answer.question.correct_option == 'D' %}
+            {{ answer.question.option_d }}
+        {% endif %}
+    </p>
+    <p>
+        {% if answer.is_correct %}
+        <span class="text-green-500">Correct!</span>
+        {% else %}
+        <span class="text-red-500">Incorrect.</span>
+        {% endif %}
+    </p>
+    <p class="text-lg mt-4">Score: {{ total_correct }} / {{ total_attempted }}</p>
+
+    <a href="{% url 'get_question' %}" class="mt-6 inline-block bg-gradient-to-r from-indigo-600 to-indigo-800 text-white px-6 py-3 rounded-lg shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+        Next Question
+    </a>
+    <a href="{% url 'final_result' %}" class="mt-6 inline-block bg-gradient-to-r from-indigo-600 to-indigo-800 text-white px-6 py-3 rounded-lg shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+        View Final Results
+    </a>
+</div>
+{% endblock %}

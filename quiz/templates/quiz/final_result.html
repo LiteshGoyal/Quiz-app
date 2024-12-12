@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-6 my-4">
+    <h2 class="text-2xl font-semibold mb-4 text-gray-700">Final Results</h2>
+    <p class="text-lg">Total Questions Attempted: <span class="font-bold">{{ total_attempted }}</span></p>
+    <p class="text-lg mb-8">Correct Answers: <span class="font-bold">{{ total_correct }}</span></p>
+
+    <a href="{% url 'start_quiz' %}" class="mt-6 inline-block bg-gradient-to-r from-indigo-600 to-indigo-800 text-white px-6 py-3 rounded-lg shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+        Restart Quiz
+    </a>
+</div>
+{% endblock %}
