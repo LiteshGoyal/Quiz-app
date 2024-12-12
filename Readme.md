@@ -1,4 +1,4 @@
-### Quiz Application
+# Quiz Application
 
 This is a simple Django-based quiz application where users can attempt multiple-choice questions and view their results.
 ![Project Logo](images/Quiz.png)
@@ -23,32 +23,32 @@ This is a simple Django-based quiz application where users can attempt multiple-
 
 ## Setup Instructions
 
-## 1. Clone the Repository
+### 1. Clone the Repository
 ```
 $ git clone <repository-url>
 $ cd <project-folder>
 ```
-## 2. Create a Virtual Environment
+### 2. Create a Virtual Environment
 
 Create a virtual environment to manage dependencies.
 ```
 $ python -m venv venv
 $ source venv/bin/activate # On Windows, use `venv\Scripts\activate`
 ```
-## 3. Install Dependencies
+### 3. Install Dependencies
 
 Install the required Python packages from the requirements.txt file.
 ```
 $ pip install -r requirements.txt
 ```
-## 4. Setup the Database
+### 4. Setup the Database
 
 Run the following commands to set up the database and load initial data (if any).
 ```
 $ python manage.py makemigrations
 $ python manage.py migrate
 ```
-## 5. Create a Superuser
+### 5. Create a Superuser
 
 Create an admin user to access the Django admin panel.
 ```
@@ -56,7 +56,7 @@ $ python manage.py createsuperuser
 ```
 Follow the prompts to set up the admin credentials.
 
-## 6. Run the Development Server
+### 6. Run the Development Server
 
 Start the Django development server.
 ```
