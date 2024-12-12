@@ -6,7 +6,6 @@ def index(request):
     return render(request, 'quiz/index.html')
 
 def start_quiz(request):
-    # Initialize session variables for the quiz
     request.session['user_id'] = str(random.randint(1000, 9999))
     request.session['total_correct'] = 0
     request.session['total_attempted'] = 0
@@ -17,12 +16,10 @@ def get_question(request):
     if not user_id:
         return redirect('start_quiz')
 
-    # Fetch unanswered questions
     questions_answered = UserAnswer.objects.filter(user_id=user_id).values_list('question_id', flat=True)
     question = Question.objects.exclude(id__in=questions_answered).order_by('?').first()
 
     if not question:
-        # Redirect to final results if no more questions are available
         return redirect('final_result')
 
     return render(request, 'quiz/question.html', {'question': question})
@@ -32,7 +29,6 @@ def submit_answer(request, question_id):
     question = Question.objects.get(id=question_id)
     selected_option = request.POST.get('option')
 
-    # Check correctness and store the answer
     is_correct = selected_option == question.correct_option
     UserAnswer.objects.create(
         user_id=user_id,
@@ -41,7 +37,6 @@ def submit_answer(request, question_id):
         is_correct=is_correct
     )
 
-    # Update session-based totals
     request.session['total_attempted'] += 1
     if is_correct:
         request.session['total_correct'] += 1
@@ -53,7 +48,6 @@ def question_result(request, question_id):
     if not user_id:
         return redirect('start_quiz')
 
-    # Fetch the latest answered question and its result
     answer = UserAnswer.objects.get(user_id=user_id, question_id=question_id)
 
     return render(request, 'quiz/question_result.html', {
